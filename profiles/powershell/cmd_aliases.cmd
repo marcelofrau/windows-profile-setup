@@ -1,0 +1,19 @@
+@echo off
+set "WPR_DIR=%~dp0"
+doskey ls=dir /b $*
+doskey ll=dir $*
+doskey la=dir /a $*
+doskey l=dir /b $*
+doskey grep=findstr $*
+doskey clear=cls
+doskey ..=cd ..
+doskey ...=cd ..\..
+doskey ....=cd ..\..\..
+doskey pwd=cd
+doskey cat=type $*
+doskey touch=copy /b nul $*
+doskey rm=del /q $*
+doskey rmdir=rmdir /s /q $*
+doskey mv=move $*
+doskey cp=copy $*
+doskey ps=pwsh.exe -NoExit -Command "& '%WPR_DIR%Microsoft.PowerShell_profile.ps1'"
