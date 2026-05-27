@@ -16,9 +16,117 @@ This repository contains my personal Windows development environment configurati
 
 ## Preview
 
+Here is what each terminal profile looks like in action:
+
+### 1. Starship Profile (PowerShell 7)
+
 ```
-┌─[ 󰍲 marcelo   Pictures   main  ][  14:30 ]
-└─
+     _                 _     _
+ ___| |_ __ _ _ __ ___| |__ (_)_ __
+/ __| __/ _` | '__/ __| '_ \| | '_ \
+\__ \ || (_| | |  \__ \ | | | | |_) |
+|___/\__\__,_|_|  |___/_| |_|_| .__/
+                              |_|
+
+→ Time is not the enemy | Chrono Trigger
+  — Chrono Trigger
+
+──────────────────────────────────
+User: marcelo
+Host: YODA
+OS: Microsoft Windows NT 10.0.26200.0
+PowerShell: v7
+──────────────────────────────────
+
+[os]─[user]─[dir]─[git]─[lang]─[time]────────────────────
+> ls
+  assets/    install.ps1    LICENSE    README.md
+  dotfiles/  profiles/      themes/
+
+> ll
+  drwx---  assets/      27 May 20:56 --
+  drwx---  dotfiles/    27 May 20:57 --
+  drwx---  profiles/    27 May 20:53 --
+  -rwx---  install.ps1 27 May 21:00 --  21k
+  -rwx---  LICENSE      27 May 20:56 -- 1.1k
+  -rwx---  README.md    27 May 20:58 --  10k
+  drwx---  themes/      27 May 20:53 --
+
+> gl --oneline -3
+  ebd4436 Interactive installer with guided prompts
+  98798d7 Initial commit: Windows terminal profile setup
+
+> gs
+  On branch master
+  Your branch is up to date with 'origin/master'
+  nothing to commit, working tree clean
+
+> cat README.md | head -3
+  # Windows Profile Setup
+  > A complete terminal setup for Windows 11
+  — Starship prompt, eza, bat, ripgrep, Clink, and more.
+
+> which pwsh
+  C:\Program Files\PowerShell\7\pwsh.exe
+```
+
+### 2. CMD Profile (Clink + doskey aliases)
+
+```
+> cmd.exe /k cmd_aliases.cmd
+
+> ls
+.gitignore   assets       dotfiles     install.ps1
+LICENSE      profiles     README.md    themes
+
+> ll
+ Volume in drive C has no label
+ Directory of C:\Users\user\windows-profile-setup
+
+27/05/2026  20:56    <DIR>          assets
+27/05/2026  20:57    <DIR>          dotfiles
+27/05/2026  21:00            21,000 install.ps1
+27/05/2026  20:56             1,100 LICENSE
+27/05/2026  20:58            10,000 README.md
+27/05/2026  20:53    <DIR>          profiles
+27/05/2026  20:53    <DIR>          themes
+
+> cat README.md | head -3
+  # Windows Profile Setup
+  > A complete terminal setup for Windows 11
+
+> clear
+
+> ps
+  # Opens PowerShell 7 with Starship profile
+```
+
+### 3. ChrisTitus PowerShell Profile
+
+```
+> pwsh.exe -NoExit -Command "& '...Microsoft.PowerShell_profile.christitus.ps1'"
+
+     _                 _     _
+ ___| |_ __ _ _ __ ___| |__ (_)_ __
+/ __| __/ _` | '__/ __| '_ \| | '_ \
+\__ \ || (_| | |  \__ \ | | | | |_) |
+|___/\__\__,_|_|  |___/_| |_|_| .__/
+                              |_|
+
+→ Not all those who wander are lost | J.R.R. Tolkien
+
+──────────────────────────────────
+User: marcelo
+Host: YODA
+OS: Microsoft Windows NT 10.0.26200.0
+PowerShell: v7
+──────────────────────────────────
+
+> repo
+  # Navigates to repo root (ChrisTitus utility)
+
+> winutil
+  # Opens Chris Titus Windows Utility
 ```
 
 ## Features
@@ -276,6 +384,16 @@ Run `clink autorun install` from a CMD prompt to register Clink as the default h
 
 ### Windows Terminal profile paths wrong
 Edit the `commandline` and `icon` paths in your Windows Terminal settings.json to point to the correct locations on your machine.
+
+## Live Demo
+
+Run the demo script to see all profiles in action with real output:
+
+```
+.\demo\demo-script.ps1
+```
+
+It opens a guided terminal walkthrough showing the Starship prompt, CMD aliases, ChrisTitus utilities, and running commands like `ls`, `ll`, `cat`, and `gl`.
 
 ## Restoring Backups
 
